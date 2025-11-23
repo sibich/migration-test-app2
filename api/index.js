@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
       </head>
       <body>
         <h1>Welcome to the Home Page</h1>
-        <p>This is the first page of my Vercel application ready for tests.</p>
+        <p>This is the first page of my Vercel application ready with tests.</p>
         <a href="/about">Go to About Page</a>
       </body>
     </html>

@@ -1,0 +1,36 @@
+name: Node.js CI
+
+# Trigger on push to main or pull requests
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. Check out the code from GitHub
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # 2. Install Node.js
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        cache: 'npm'
+
+    # 3. Install dependencies (Clean install)
+    - name: Install Dependencies
+      run: npm ci
+
+    # 4. Run Linter (Checks for syntax errors)
+    - name: Run Linter
+      run: npm run lint
+
+    # 5. Run Tests (Checks functionality)
+    - name: Run Tests
+      run: npm test
