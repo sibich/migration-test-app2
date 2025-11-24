@@ -35,10 +35,9 @@ jobs:
     - name: Run Tests
       run: npm test
 
-    - name: Set Vercel Deployment Check Status
-      uses: vercel/repository-dispatch/actions/status@v1
+
+    - uses: amondnet/vercel-action@v25 # deploy
       with:
-        token: ${{ secrets.TOKEN }} # Or a personal access token with appropriate permissions
-        state: ${{ job.status }} # Can be success, failure, pending, error
-        context: "My Unit Tests" # A descriptive name for your check
-        description: "Unit tests completed"
+        vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
+        vercel-org-id: ${{ secrets.ORG_ID}} # Required
+        vercel-project-id: ${{ secrets.PROJECT_ID}} # Required
