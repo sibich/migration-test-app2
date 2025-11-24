@@ -34,3 +34,8 @@ jobs:
     # 5. Run Tests (Checks functionality)
     - name: Run Tests
       run: npm test
+
+    - name: 'notify vercel'
+      uses: 'vercel/repository-dispatch/actions/status@v1'
+      with:
+        name: "Vercel - migration-test-app2: tests"
